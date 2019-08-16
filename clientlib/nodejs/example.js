@@ -9,6 +9,7 @@ var FlicClient = fliclib.FlicClient;
 var FlicConnectionChannel = fliclib.FlicConnectionChannel;
 
 var client = new FlicClient("localhost", 5551);
+var DOUBLE_CLICK_DELAY = 300; //ms
 
 function listenToButton(bdAddr) {
 	var cc = new FlicConnectionChannel(bdAddr);
