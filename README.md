@@ -98,6 +98,14 @@ Usage: ./flicd -f sqlite_db_file.db [options]
 -n  --no-fw-updates Disable firmware updates. Not recommended.
 ```
 
+### Steps to start it locally
+```
+./bin/x86_64/flicd -f flic.sqlite3
+cd clientlib/nodejs
+npm install
+REFRESH_TOKEN=<spotify_refresh_token> CLIENT_SECRET=<spotify_app_client_secret> node example.js
+```
+
 ## Troubleshooting
 To see the available HCI available bluetooth controllers, run the `hciconfig` command. If it prints nothing, Linux can't find it. Run `dmesg` to see if there are any kernel error messages.
 If for some reason your bluetooth controller is powered off, power it on by executing the `sudo bluetoothctl` command and in that type `power on`.
