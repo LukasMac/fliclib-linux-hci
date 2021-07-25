@@ -10,7 +10,7 @@ var FlicConnectionChannel = fliclib.FlicConnectionChannel;
 
 var client = new FlicClient("localhost", 5551);
 var DOUBLE_CLICK_DELAY = 300; //ms
-const HOME_AUTOMATION_URL = "http://192.168.86.22:3001",
+const HOME_AUTOMATION_URL = "http://192.168.86.22:3001";
 
 function listenToButton(bdAddr) {
   var cc = new FlicConnectionChannel(bdAddr);
@@ -35,15 +35,15 @@ function listenToButton(bdAddr) {
       if (isDoubleClick) {
         clearTimeout(singleClickTimer);
         console.log("next");
-        await axios.get( `${HOME_AUTOMATION_URL}/speaker/next`);
+        axios.get(`${HOME_AUTOMATION_URL}/speaker/next`);
       } else if (isHoldClick) {
         clearTimeout(singleClickTimer);
         console.log("previous");
-        await axios.get( `${HOME_AUTOMATION_URL}/speaker/previous`);
+        axios.get(`${HOME_AUTOMATION_URL}/speaker/previous`);
       } else {
         singleClickTimer = setTimeout(function () {
           console.log("play pause");
-        await axios.get( `${HOME_AUTOMATION_URL}/speaker/play-pause`);
+          axios.get(`${HOME_AUTOMATION_URL}/speaker/play-pause`);
         }, DOUBLE_CLICK_DELAY + 10);
       }
     }
