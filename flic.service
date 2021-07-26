@@ -3,12 +3,10 @@ Description=Flic button
 After=network.target
 
 [Service]
-Type=oneshot
-WorkingDirectory=/home/pi/projects/fliclib-linux-hci/clientlib/nodejs
-ExecStart=/home/pi/projects/fliclib-linux-hci/bin/armv6l/flicd  -f flic.sqlite3
-RemainAfterExit=true
-ExecStart=/usr/bin/node example.js
-Restart=on-failure
+Type=simple
+WorkingDirectory=/home/pi/projects/fliclib-linux-hci/
+ExecStart=/home/pi/projects/fliclib-linux-hci/start.sh
+Restart=no
 User=pi
 
 [Install]
